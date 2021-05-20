@@ -32,7 +32,7 @@ export class HomePage {
   //Este é o método responsável pela ação que será executada após o úsuario clicar no botão "Entrar".
   login() {
     this.auth.authenticate(this.creds).subscribe(response => {
-      console.log(response.headers.get('Authorization'));
+      this.auth.successfullLogin(response.headers.get('Authorization'));
       this.navCtrl.setRoot('CategoriasPage');
     },
       error => { });
