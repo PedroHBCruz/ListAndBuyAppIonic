@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, NavParams } from 'ionic-angular';
 import { CategoriaService } from '../../services/domain/categoria.service';
 import { API_CONFIG } from '../../config/api.config';
 import { CategoriaDTO } from '../../models/categorias.dto';
@@ -25,9 +25,12 @@ export class CategoriasPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public categoriaService: CategoriaService) {
+    public categoriaService: CategoriaService,
+    public menu: MenuController) {
   }
-
+  ionViewWillEnter() {
+    this.menu.swipeEnable(true);
+  }
   ionViewDidLoad() {
     this.categoriaService.findAll()
       .subscribe(response => {

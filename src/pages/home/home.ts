@@ -26,9 +26,7 @@ export class HomePage {
     this.menu.swipeEnable(false);
   }
   //Quando o App sair da página inicial, o sidemenu será ativado novamente.
-  ionViewDidLeave() {
-    this.menu.swipeEnable(true);
-  }
+ 
 
   ionViewDidEnter() {
     this.auth.refreshToken()
